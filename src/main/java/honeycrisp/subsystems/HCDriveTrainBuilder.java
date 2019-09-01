@@ -14,6 +14,7 @@ public abstract class HCDriveTrainBuilder<T extends HCDriveTrain> {
     private ADXRS450_Gyro gyro;
     private boolean isLeftInverted = false;
     private boolean isRightInverted = false;
+    private double maxOutput = 1.0;
 
     public HCDriveTrainBuilder(){
     }
@@ -58,6 +59,11 @@ public abstract class HCDriveTrainBuilder<T extends HCDriveTrain> {
         return this;
     }
 
+    public HCDriveTrainBuilder<T> setMaxOutput(double max){
+        this.maxOutput = max;
+        return this;
+    }
+
     public T build(){
         T dt = newDriveTrain(lfTalon,rfTalon,lrTalon,rrTalon);
         
@@ -69,6 +75,7 @@ public abstract class HCDriveTrainBuilder<T extends HCDriveTrain> {
         if (isLeftInverted){
             dt.invertLeft();
         }
+        dt.setMaxOutput(maxOutput);
         return dt;
     }
 

@@ -1,4 +1,4 @@
-package honeycrisp;
+package honeycrisp.cmdutils;
 
 import edu.wpi.first.wpilibj.command.Command;
 

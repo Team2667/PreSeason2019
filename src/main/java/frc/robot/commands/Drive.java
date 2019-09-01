@@ -8,11 +8,10 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.command.Command;
-import honeycrisp.JoystickCommand;
+import honeycrisp.cmdutils.JoystickCommand;
 import honeycrisp.subsystems.HCDriveTrain;
 
-public class Drive extends Command implements JoystickCommand{
+public class Drive extends JoystickCommand{
   private HCDriveTrain driveTrain;
   private XboxController joy;
 

@@ -16,7 +16,9 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.DriveTrainBuilder;
+import frc.robot.subsystems.GamePadSubsystem;
 import frc.robot.subsystems.GroupCommands;
+import honeycrisp.cmdutils.CommandDirectory;
 import honeycrisp.subsystems.HCSubsystem;
 
 /**
@@ -28,8 +30,13 @@ import honeycrisp.subsystems.HCSubsystem;
  */
 public class Robot extends TimedRobot {
   public static OI m_oi;
-
   private List<HCSubsystem> subsystems;
+  private CommandDirectory commandDirectory = new CommandDirectory();
+
+  // sets the maximum speed for the drive train. To give it full power after drivers have been
+  // properly trained and ready and mentors are reasonaly certain they will not accendently ram
+  // the robot into the school wall, set it to 1.0.
+  private static double MAX_DRIVE_TRAIN_POWER = .5;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -43,11 +50,13 @@ public class Robot extends TimedRobot {
     m_oi = new OI();
     subsystems = new ArrayList<HCSubsystem>();
 
+
     // chooser.addOption("My Auto", new MyAutoCommand());
 
     subsystems.add(createDriveTrainSubsystem());
     subsystems.add(createGroupCommandsSubsystem());
-    subsystems.forEach(sub -> sub.addCommands(m_oi));
+    subsystems.add(createGamePadSubsystem(m_oi));
+    subsystems.forEach(sub -> sub.addCommands(commandDirectory));
   }
 
   /**
@@ -142,12 +151,15 @@ public class Robot extends TimedRobot {
   private HCSubsystem createDriveTrainSubsystem(){
     DriveTrain driveTrain = new DriveTrainBuilder().addLfSpeedControler(4).addRfSpeedControler(2).
       addLrSpeedControler(3).addRrSpeedControler(1).addDistanceSensor(3).
-      addGyro().invertLeft().build();
-    driveTrain.addCommands(m_oi);
+      setMaxOutput(MAX_DRIVE_TRAIN_POWER).addGyro().invertLeft().build();
     return driveTrain;
   }
 
   private HCSubsystem createGroupCommandsSubsystem(){
     return new GroupCommands();
+  }
+
+  private HCSubsystem createGamePadSubsystem(OI oi){
+    return new GamePadSubsystem(oi);
   }
 }

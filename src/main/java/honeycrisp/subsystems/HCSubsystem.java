@@ -8,7 +8,8 @@
 package honeycrisp.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import honeycrisp.CommandButtons;
+import honeycrisp.cmdutils.CommandButtons;
+import honeycrisp.cmdutils.CommandDirectory;
 
 /**
  * Add your docs here.
@@ -17,8 +18,11 @@ public abstract class HCSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
- public abstract void addCommands(CommandButtons commandButtons);
 
+// public abstract void addCommands(CommandButtons commandButtons);
+
+ public abstract void addCommands(CommandDirectory commandDirectory);
+ 
  public abstract void updateSmartDashboardValues();
 
   @Override

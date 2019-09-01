@@ -10,8 +10,8 @@ package frc.robot;
 import java.util.HashMap;
 
 import edu.wpi.first.wpilibj.command.Command;
-import honeycrisp.CommandButtons;
-import honeycrisp.JoystickCommand;
+import honeycrisp.cmdutils.CommandButtons;
+import honeycrisp.cmdutils.JoystickCommand;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -28,24 +28,33 @@ public class OI implements CommandButtons{
 
   @Override
   public void addButtonPress(Command command, int button){
-    JoystickButton jButton = new JoystickButton(xbox,button);
-    jButton.whenPressed(command);
+    if (command != null ){
+      JoystickButton jButton = new JoystickButton(xbox,button);
+      jButton.whenPressed(command);
+    }
   }
 
   @Override
   public void addButtonHeld(Command command, int button){
-    JoystickButton jButton = new JoystickButton(xbox, button);
-    jButton.whileHeld(command);
+    if (command != null){
+      JoystickButton jButton = new JoystickButton(xbox, button);
+
+      jButton.whileHeld(command);
+    }
   }
 
   @Override
   public void addButtonRelease(Command command, int button){
-    JoystickButton jButton = new JoystickButton(xbox, button);
-    jButton.whenReleased(command);
+    if (command != null){
+      JoystickButton jButton = new JoystickButton(xbox, button);
+      jButton.whenReleased(command);
+    }
   }
 
   @Override
   public void addJoystickCommand(JoystickCommand command){
-    command.addJoystick(xbox);
+    if (command != null){
+      command.addJoystick(xbox);
+    }
   }
 }
