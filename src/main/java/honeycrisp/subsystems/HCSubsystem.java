@@ -8,7 +8,6 @@
 package honeycrisp.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import honeycrisp.cmdutils.CommandButtons;
 import honeycrisp.cmdutils.CommandDirectory;
 
 /**
@@ -17,9 +16,6 @@ import honeycrisp.cmdutils.CommandDirectory;
 public abstract class HCSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-
-
-// public abstract void addCommands(CommandButtons commandButtons);
 
  public abstract void addCommands(CommandDirectory commandDirectory);
  

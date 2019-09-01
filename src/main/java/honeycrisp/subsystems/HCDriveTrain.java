@@ -10,13 +10,14 @@ package honeycrisp.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import honeycrisp.util.AnalogValueConverter;
+import honeycrisp.util.PidControllerBuilder;
 
 /**
  * Add your docs here.
@@ -35,7 +36,7 @@ public abstract class HCDriveTrain extends HCSubsystem{
         diffDrive = new DifferentialDrive(leftSideControllerGroup, rightSideControllerGroup);
     }
 
-    public void arcadeDrive(XboxController joy) {
+    public void arcadeDrive(GenericHID joy) {
         diffDrive.arcadeDrive(joy.getX(), joy.getY());
     }
 

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -19,6 +20,7 @@ import frc.robot.subsystems.DriveTrainBuilder;
 import frc.robot.subsystems.GamePadSubsystem;
 import frc.robot.subsystems.GroupCommands;
 import honeycrisp.cmdutils.CommandDirectory;
+import honeycrisp.cmdutils.OI;
 import honeycrisp.subsystems.HCSubsystem;
 
 /**
@@ -47,7 +49,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_oi = new OI();
+    m_oi = new OI(new XboxController(0));
     subsystems = new ArrayList<HCSubsystem>();
 
 

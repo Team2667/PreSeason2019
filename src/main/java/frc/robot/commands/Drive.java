@@ -7,13 +7,13 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID;
 import honeycrisp.cmdutils.JoystickCommand;
 import honeycrisp.subsystems.HCDriveTrain;
 
 public class Drive extends JoystickCommand{
   private HCDriveTrain driveTrain;
-  private XboxController joy;
+  private GenericHID joy;
 
   public Drive(HCDriveTrain driveTrain) {
     requires(driveTrain);
@@ -22,7 +22,7 @@ public class Drive extends JoystickCommand{
   }
 
   @Override
-  public void addJoystick(XboxController joy){
+  public void addJoystick(GenericHID joy){
     this.joy = joy;
   }
 

@@ -1,6 +1,6 @@
 package frc.robot.subsystems;
 
-import frc.robot.OI;
+import honeycrisp.cmdutils.OI;
 import frc.robot.RobotMap;
 import honeycrisp.cmdutils.CommandDirectory;
 import honeycrisp.subsystems.HCSubsystem;
@@ -20,7 +20,7 @@ public class GamePadSubsystem extends HCSubsystem
 
     @Override
     public void addCommands(CommandDirectory commandDirectory){
-        commandDirectory.getJoyStickCommand(RobotMap.drive).addJoystick(oi.xbox);
+        commandDirectory.getJoyStickCommand(RobotMap.drive).addJoystick(oi.gamepad);
         oi.addButtonPress(commandDirectory.getButtonCommand(RobotMap.forwardForMillisStandalone), BButton);
         oi.addButtonPress(commandDirectory.getButtonCommand(RobotMap.forwardAndTurn), AButton);
     }

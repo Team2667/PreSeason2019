@@ -1,4 +1,4 @@
-package honeycrisp.subsystems;
+package honeycrisp.util;
 
 import java.util.function.DoubleFunction;
 
