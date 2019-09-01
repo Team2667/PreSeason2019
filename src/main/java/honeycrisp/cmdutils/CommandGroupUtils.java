@@ -6,7 +6,7 @@ import java.util.List;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class GroupCommandUtils  {
+public class CommandGroupUtils  {
 
     public static Command createSequencialCommandGroup(Command ... commands){
         CommandGroup cg = new CommandGroup();

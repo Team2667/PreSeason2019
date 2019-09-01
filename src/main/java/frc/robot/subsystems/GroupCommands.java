@@ -3,7 +3,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.RobotMap;
 import honeycrisp.cmdutils.CommandDirectory;
-import honeycrisp.cmdutils.CommandGroupUtils;
+import honeycrisp.cmdutils.CommandGroupUtilsTest;
 import honeycrisp.subsystems.HCSubsystem;
 
 public class GroupCommands extends HCSubsystem{
@@ -19,7 +19,7 @@ public class GroupCommands extends HCSubsystem{
     }
 
     private Command createDriveThenTurn(CommandDirectory commands){
-        return CommandGroupUtils.createSequencialCommandGroup(
+        return CommandGroupUtilsTest.createSequencialCommandGroup(
                 commands.getgrpCmdCommand(RobotMap.forwardForMillis),
                 commands.getgrpCmdCommand(RobotMap.turnCounter45));
     }
