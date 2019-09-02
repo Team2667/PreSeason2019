@@ -8,7 +8,7 @@ public class CommandDirectory {
     private HashMap<Integer,Command> buttonCommands = new HashMap<>();
     private HashMap<Integer,JoystickCommand> joyStickCommands = new HashMap<>();
 
-    public void addGrpCmdCommand(int key, Command command){
+    public void addGroupStepCommand(int key, Command command){
         groupCommandCommands.put(key, command);
     }
 
@@ -24,7 +24,7 @@ public class CommandDirectory {
         return buttonCommands.get(key);
     }
 
-    public Command getgrpCmdCommand(int key){
+    public Command getGroupStepCommand(int key){
         return groupCommandCommands.get(key);
     }
 

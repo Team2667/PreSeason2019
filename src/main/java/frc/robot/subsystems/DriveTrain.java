@@ -37,8 +37,8 @@ public class DriveTrain extends HCDriveTrain {
 
   @Override
   public void addCommands(CommandDirectory commandDirectory) {
-    commandDirectory.addGrpCmdCommand(RobotMap.turnCounter45, new TurnCounterClockwise(this, 45.0));
-    commandDirectory.addGrpCmdCommand(RobotMap.forwardForMillis, new MoveForMilliSeconds(this,5000,.4));
+    commandDirectory.addGroupStepCommand(RobotMap.turnCounter45, new TurnCounterClockwise(this, 45.0));
+    commandDirectory.addGroupStepCommand(RobotMap.forwardForMillis, new MoveForMilliSeconds(this,5000,.4));
     commandDirectory.addButtonCommand(RobotMap.forwardForMillisStandalone, new MoveForMilliSeconds(this,5000,.4));
     commandDirectory.addJoyStickCommand(RobotMap.drive, new Drive(this));
     defaultCommand = commandDirectory.getJoyStickCommand(RobotMap.drive);

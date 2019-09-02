@@ -20,7 +20,7 @@ public class GroupCommands extends HCSubsystem{
 
     private Command createDriveThenTurn(CommandDirectory commands){
         return CommandGroupUtils.createSequencialCommandGroup(
-                commands.getgrpCmdCommand(RobotMap.forwardForMillis),
-                commands.getgrpCmdCommand(RobotMap.turnCounter45));
+                commands.getGroupStepCommand(RobotMap.forwardForMillis),
+                commands.getGroupStepCommand(RobotMap.turnCounter45));
     }
 }
