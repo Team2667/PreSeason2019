@@ -35,10 +35,11 @@ public class Robot extends TimedRobot {
   private List<HCSubsystem> subsystems;
   private CommandDirectory commandDirectory = new CommandDirectory();
 
-  // sets the maximum speed for the drive train. To give it full power after drivers have been
-  // properly trained and ready and mentors are reasonaly certain they will not accendently ram
-  // the robot into the school wall, set it to 1.0.
-  private static double MAX_DRIVE_TRAIN_POWER = .5;
+  // When creating the drive train, set the maximum output to this value.
+  // The max output can be set directory on the DriveTrain from a drive train 
+  // command. For example, the initliize method can set the max ouput in the initialize
+  // method. Any drive train that does this, should set it back in the end()/interrupted() methods.
+  private static double MAX_DRIVE_TRAIN_POWER = 1.0;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();

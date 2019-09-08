@@ -14,6 +14,10 @@ import honeycrisp.subsystems.HCDriveTrain;
 public class Drive extends JoystickCommand{
   private HCDriveTrain driveTrain;
   private GenericHID joy;
+  private double prevMaxOutput;
+
+  // Sets the maximum output for the drive train when driving the robot with a joystick.
+  private final double MAX_OUTPUT = .5;
 
   public Drive(HCDriveTrain driveTrain) {
     requires(driveTrain);
@@ -29,7 +33,8 @@ public class Drive extends JoystickCommand{
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-      
+      prevMaxOutput = driveTrain.getMaxOutput();
+      driveTrain.setMaxOutput(MAX_OUTPUT);
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -48,6 +53,7 @@ public class Drive extends JoystickCommand{
   @Override
   protected void end() {
     driveTrain.stop();
+    driveTrain.setMaxOutput(prevMaxOutput);
   }
 
   // Called when another command which requires one or more of the same

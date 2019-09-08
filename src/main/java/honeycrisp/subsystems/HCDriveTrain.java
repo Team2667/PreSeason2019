@@ -28,6 +28,7 @@ public abstract class HCDriveTrain extends HCSubsystem{
     private DifferentialDrive diffDrive;
     private AnalogInput distanceSensor;
     private ADXRS450_Gyro gyro;
+    private double maxOutput;
     
 
     public HCDriveTrain(WPI_TalonSRX leftFront,  WPI_TalonSRX rightFront,  WPI_TalonSRX leftRear,  WPI_TalonSRX rightRear){
@@ -53,7 +54,15 @@ public abstract class HCDriveTrain extends HCSubsystem{
     }
 
     public void setMaxOutput(double max){
-        diffDrive.setMaxOutput(max);
+        if (max > 0 && max < 1.0){
+            diffDrive.setMaxOutput(max);
+            maxOutput = max;
+        }
+        
+    }
+
+    public double getMaxOutput(){
+        return maxOutput;
     }
 
     public void moveForward(double power){
