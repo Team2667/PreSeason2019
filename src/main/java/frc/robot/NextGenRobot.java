@@ -11,6 +11,7 @@ import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.DriveTrainBuilder;
 import frc.robot.subsystems.GamePadSubsystem;
 import frc.robot.subsystems.GroupCommands;
+import frc.robot.subsystems.PanelGrabberBuilder;
 import honeycrisp.cmdutils.CommandDirectory;
 import honeycrisp.cmdutils.OI;
 import honeycrisp.robot.HCRobot;
@@ -31,6 +32,7 @@ public class NextGenRobot extends HCRobot{
         // chooser.addOption("My Auto", new MyAutoCommand());
     
         subsystems.add(createDriveTrainSubsystem());
+        // ToDo: add panel grabber subsystem here
         subsystems.add(createGroupCommandsSubsystem());
         subsystems.add(createGamePadSubsystem(oi));
         return subsystems;
@@ -59,5 +61,11 @@ public class NextGenRobot extends HCRobot{
     
     private HCSubsystem createGamePadSubsystem(OI oi){
         return new GamePadSubsystem(oi);
+    }
+
+    private HCSubsystem createPanelGrabberSubsystem(int canId){
+        PanelGrabberBuilder builder = new PanelGrabberBuilder(canId);
+        //Todo: Add solinoids here
+        return builder.build();
     }
 }
