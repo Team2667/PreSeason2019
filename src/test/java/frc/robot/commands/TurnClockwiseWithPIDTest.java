@@ -8,16 +8,12 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.DriveTrain;
-import honeycrisp.util.AnalogValueConverter;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.internal.matchers.Any;
-import org.mockito.internal.verification.AtLeast;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.stubbing.Answer;
@@ -36,7 +32,7 @@ import static org.junit.Assert.*;
 @RunWith(MockitoJUnitRunner.class)
 public class TurnClockwiseWithPIDTest {
     private DriveTrain dt;
-    private TurnClockwiseWithPID cmd;
+    private TurnWithPID cmd;
     private MockInputSource inSource;
 
     @Mock
@@ -60,14 +56,14 @@ public class TurnClockwiseWithPIDTest {
         };
 
          inSource = new MockInputSource(
-            0.01, -0.9, -1.16, -4.0, -8.0, -16.0, -20.0, -25.0, -25.0, -25.0
+            0.01, 0.9, 1.16, 4.0, 8.0, 16.0, 20.0, 25.0, 25.0, 25.0
         );
 
         when (gyro.pidGet()).thenAnswer(answer);   
         when (gyro.getPIDSourceType()).thenReturn(PIDSourceType.kDisplacement);  
         dt = new DriveTrain(leftSide, rightSide);
         dt.setGyro(gyro);   
-        cmd = new TurnClockwiseWithPID(dt, -25.0);
+        cmd = new TurnWithPID(dt, 25.0);
     }
 
     @After
