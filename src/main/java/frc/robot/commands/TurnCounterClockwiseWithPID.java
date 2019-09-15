@@ -5,13 +5,13 @@ import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.command.Command;
 import honeycrisp.subsystems.HCDriveTrain;
 
-public class PidGyroTurnCounter extends Command implements PIDOutput{
+public class TurnCounterClockwiseWithPID extends Command implements PIDOutput{
     private HCDriveTrain driveTrain;
     private PIDController pidController;
     private double angle;
 
 
-    public PidGyroTurnCounter(HCDriveTrain driveTrain, double angle) {
+    public TurnCounterClockwiseWithPID(HCDriveTrain driveTrain, double angle) {
         this.driveTrain = driveTrain;
         this.requires(driveTrain);
         this.angle = angle;

@@ -34,9 +34,9 @@ import static org.junit.Assert.*;
  * Add your docs here.
  */
 @RunWith(MockitoJUnitRunner.class)
-public class PidGyroTurnCounterTest {
+public class TurnCounterClockwiseWithPIDTest {
     private DriveTrain dt;
-    private PidGyroTurnCounter cmd;
+    private TurnCounterClockwiseWithPID cmd;
     private MockInputSource inSource;
 
     @Mock
@@ -67,7 +67,7 @@ public class PidGyroTurnCounterTest {
         when (gyro.getPIDSourceType()).thenReturn(PIDSourceType.kDisplacement);  
         dt = new DriveTrain(leftSide, rightSide);
         dt.setGyro(gyro);   
-        cmd = new PidGyroTurnCounter(dt, -25.0);
+        cmd = new TurnCounterClockwiseWithPID(dt, -25.0);
     }
 
     @After
