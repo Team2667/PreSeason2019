@@ -58,6 +58,7 @@ public class Robot extends TimedRobot {
 
     subsystems.add(createDriveTrainSubsystem());
     subsystems.add(createGroupCommandsSubsystem());
+    System.out.println("Creating gamepad");
     subsystems.add(createGamePadSubsystem(m_oi));
     subsystems.forEach(sub -> sub.addCommands(commandDirectory));
   }
