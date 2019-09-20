@@ -38,7 +38,7 @@ public abstract class HCDriveTrain extends HCSubsystem{
     }
 
     public void arcadeDrive(GenericHID joy) {
-        diffDrive.arcadeDrive(joy.getX(), joy.getY());
+        diffDrive.arcadeDrive(-joy.getX(), joy.getY());
     }
 
     public void invertLeft(){
@@ -70,7 +70,7 @@ public abstract class HCDriveTrain extends HCSubsystem{
     }
 
     public void turn(double power){
-        diffDrive.arcadeDrive(power, 0);
+        diffDrive.arcadeDrive(-power, 0);
     }
 
     public void stop(){
