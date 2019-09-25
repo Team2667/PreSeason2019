@@ -19,6 +19,7 @@ import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.DriveTrainBuilder;
 import frc.robot.subsystems.GamePadSubsystem;
 import frc.robot.subsystems.GroupCommands;
+import frc.robot.subsystems.PanelGrabberBuilder;
 import honeycrisp.cmdutils.CommandDirectory;
 import honeycrisp.cmdutils.OI;
 import honeycrisp.subsystems.HCSubsystem;
@@ -57,6 +58,7 @@ public class Robot extends TimedRobot {
     // chooser.addOption("My Auto", new MyAutoCommand());
 
     subsystems.add(createDriveTrainSubsystem());
+    subsystems.add(createPanelGrabberSubsystem());
     subsystems.add(createGroupCommandsSubsystem());
     System.out.println("Creating gamepad");
     subsystems.add(createGamePadSubsystem(m_oi));
@@ -157,6 +159,12 @@ public class Robot extends TimedRobot {
       addLrSpeedControler(3).addRrSpeedControler(1).addDistanceSensor(3).
       setMaxOutput(MAX_DRIVE_TRAIN_POWER).addGyro().invertLeft().build();
     return driveTrain;
+  }
+
+  public HCSubsystem createPanelGrabberSubsystem(){
+    PanelGrabberBuilder builder = new PanelGrabberBuilder(8);
+    builder.addSolenoid("hatch", 0, 1);
+    return builder.build();
   }
 
   private HCSubsystem createGroupCommandsSubsystem(){

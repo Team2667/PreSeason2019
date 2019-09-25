@@ -6,12 +6,17 @@ import frc.robot.subsystems.PanelGrabber;
 //ToDo: Implement
 public class GrabPanel extends Command{
     // Called just before this Command runs the first time
-  public GrabPanel(PanelGrabber panelGrabber){
+private PanelGrabber panelGrabber ;
+
+public GrabPanel(PanelGrabber panelGrabber){ 
+  this.panelGrabber=panelGrabber ; 
       
   }
   
     @Override
   protected void initialize() {
+    System.out.println("Initialized called");
+    panelGrabber.grabpannel();
   }
 
   // Called repeatedly when this Command is scheduled to run

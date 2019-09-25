@@ -6,9 +6,12 @@ import honeycrisp.subsystems.HCDoubleSolenoid;
 public class PanelGrabber extends HCDoubleSolenoid{
 
     public void releasePanel(){
-       //ToDo: Implement method
+        this.retractRam("hatch");
     }
-
+    
+    public void grabpannel(){
+        this.extendRam("hatch");
+     }
     // ToDo: Add additional methods
 
 

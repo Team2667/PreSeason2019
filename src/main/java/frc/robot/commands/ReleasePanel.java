@@ -6,13 +6,16 @@ import frc.robot.subsystems.PanelGrabber;
 
 //ToDo: Implement
 public class ReleasePanel extends Command{
+  private PanelGrabber panelGrabber;
+
     // Called just before this Command runs the first time
   public ReleasePanel(PanelGrabber panelGrabber){
-      
+      this.panelGrabber = panelGrabber;
   }
   
     @Override
   protected void initialize() {
+    
   }
 
   // Called repeatedly when this Command is scheduled to run

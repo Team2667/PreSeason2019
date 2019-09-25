@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 public abstract class HCDoubleSolenoid extends HCSubsystem{
     private Map<String,DoubleSolenoid> solenoids;
@@ -21,11 +22,19 @@ public abstract class HCDoubleSolenoid extends HCSubsystem{
         if (sol == null){
             // write a message to console
         } else {
+            System.out.println("extending ram");
+            sol.set(Value.kForward);
             // call a method on sol to extend the ram
         }
     }
 
     public void retractRam(String ramName){
-        // Implement. 
+        DoubleSolenoid sol = solenoids.get(ramName);
+        if (sol == null){
+            // write a message to console
+        } else {
+            sol.set(Value.kReverse);
+            // call a method on sol to extend the ram
+        } // Implement. 
     }
 }
