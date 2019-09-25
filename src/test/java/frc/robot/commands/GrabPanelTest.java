@@ -11,13 +11,13 @@ import frc.robot.subsystems.MockPanelGrabberBuilder;
 
 public class GrabPanelTest {
     DoubleSolenoid mockedDoubleSolenoid;
-    ReleasePanel cmd;
+    GrabPanel cmd;
 
     @Before
     public void setUp(){
         MockPanelGrabberBuilder builder = new MockPanelGrabberBuilder();
         builder.addSolenoid("hatch", 0, 1);
-        cmd = new ReleasePanel(builder.build());
+        cmd = new GrabPanel(builder.build());
         mockedDoubleSolenoid = builder.getMockedSolinoid();
     }
 

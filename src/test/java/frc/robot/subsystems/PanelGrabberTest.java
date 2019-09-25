@@ -15,7 +15,7 @@ public class PanelGrabberTest {
     @Before
     public void setUp(){
         MockPanelGrabberBuilder builder = new MockPanelGrabberBuilder();
-        builder.addSolenoid("panel", 1, 2);
+        builder.addSolenoid("hatch", 1, 2);
         panelGrabber = builder.build();
         panelSol = builder.getMockedSolinoid();
     }
@@ -24,6 +24,6 @@ public class PanelGrabberTest {
     @Test
     public void releasePanelShouldShouldRetractRam(){
         panelGrabber.releasePanel();
-        verify(panelSol,times(1)).set(DoubleSolenoid.Value.kForward);
+        verify(panelSol,times(1)).set(DoubleSolenoid.Value.kReverse);
     }
 }

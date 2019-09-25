@@ -16,7 +16,7 @@ public class ReleasePanelTest {
     @Before
     public void setUp(){
         MockPanelGrabberBuilder builder = new MockPanelGrabberBuilder();
-        builder.addSolenoid("panel", 1, 2);
+        builder.addSolenoid("hatch", 1, 2);
         cmd = new ReleasePanel(builder.build());
         mockedDoubleSolenoid = builder.getMockedSolinoid();
     }
