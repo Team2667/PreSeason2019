@@ -1,5 +1,8 @@
 package frc.robot.subsystems;
 
+import frc.robot.RobotMap;
+import frc.robot.commands.GrabPanel;
+import frc.robot.commands.ReleasePanel;
 import honeycrisp.cmdutils.CommandDirectory;
 import honeycrisp.subsystems.HCDoubleSolenoid;
 
@@ -16,8 +19,8 @@ public class PanelGrabber extends HCDoubleSolenoid{
 
 
     public void addCommands(CommandDirectory commandDirectory){
-        // ToDo: add PanelGrabber commands here.
-        //
+        commandDirectory.addButtonCommand(RobotMap.grabPanel, new GrabPanel(this));
+        commandDirectory.addButtonCommand(RobotMap.grabPanel, new ReleasePanel(this));
     }
  
     public void updateSmartDashboardValues(){

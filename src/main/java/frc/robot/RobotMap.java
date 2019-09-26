@@ -30,4 +30,7 @@ public class RobotMap {
   public static final int forwardForMillis = 2;
   public static final int forwardForMillisStandalone = 3;
   public static final int turnCounter45 = 4;
+
+  public static final int grabPanel = 5;
+  public static final int releasePanel = 6;
 }
