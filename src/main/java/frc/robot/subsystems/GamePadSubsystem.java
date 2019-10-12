@@ -23,6 +23,8 @@ public class GamePadSubsystem extends HCSubsystem
         commandDirectory.getJoyStickCommand(RobotMap.drive).addJoystick(oi.gamepad);
         oi.addButtonPress(commandDirectory.getButtonCommand(RobotMap.forwardForMillisStandalone), BButton);
         oi.addButtonPress(commandDirectory.getButtonCommand(RobotMap.forwardAndTurn), AButton);
+        oi.addButtonPress(commandDirectory.getButtonCommand(RobotMap.grabPanel), XButton);
+        oi.addButtonPress(commandDirectory.getButtonCommand(RobotMap.releasePanel), YButton);
     }
 
     @Override
