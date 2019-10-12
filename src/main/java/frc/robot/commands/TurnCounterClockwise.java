@@ -17,13 +17,13 @@ public class TurnCounterClockwise extends Command{
   @Override
   protected void initialize() {
     driveTrain.resetGyro();
-    driveTrain.turn(-.5);
+    driveTrain.turn(-.75);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    driveTrain.turn(-.5);
+    driveTrain.turn(-.75);
   }
 
   // Make this return true when this Command no longer needs to run execute()

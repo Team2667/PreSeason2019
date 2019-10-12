@@ -24,7 +24,7 @@ public class GamePadSubsystem extends HCSubsystem
         oi.addButtonPress(commandDirectory.getButtonCommand(RobotMap.forwardForMillisStandalone), BButton);
         oi.addButtonPress(commandDirectory.getButtonCommand(RobotMap.forwardAndTurn), AButton);
         oi.addButtonPress(commandDirectory.getButtonCommand(RobotMap.grabPanel), XButton);
-        oi.addButtonPress(commandDirectory.getButtonCommand(RobotMap.releasePanel), XButton);
+        oi.addButtonPress(commandDirectory.getButtonCommand(RobotMap.releasePanel), YButton);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.commands.GrabPanel;
 import frc.robot.commands.ReleasePanel;
@@ -20,7 +21,7 @@ public class PanelGrabber extends HCDoubleSolenoid{
 
     public void addCommands(CommandDirectory commandDirectory){
         commandDirectory.addButtonCommand(RobotMap.grabPanel, new GrabPanel(this));
-        commandDirectory.addButtonCommand(RobotMap.grabPanel, new ReleasePanel(this));
+        commandDirectory.addButtonCommand(RobotMap.releasePanel, new ReleasePanel(this));
     }
  
     public void updateSmartDashboardValues(){
