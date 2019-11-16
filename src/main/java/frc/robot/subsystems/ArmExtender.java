@@ -3,6 +3,9 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.RobotMap;
+import frc.robot.commands.ExtendArm;
+import frc.robot.commands.RetractArm;
 import honeycrisp.cmdutils.CommandDirectory;
 import honeycrisp.subsystems.HCSimpleTalon;
 
@@ -14,8 +17,12 @@ public class ArmExtender extends HCSimpleTalon {
   
   @Override
   public void addCommands(CommandDirectory commandDirectory) {
-    // ToDo: create commands and add them to commandDirectory 
+    
+   
+    commandDirectory.addButtonCommand(RobotMap.extendArm, new ExtendArm(this));
+    commandDirectory.addButtonCommand(RobotMap.retractArm, new RetractArm(this));
   }
+
 
   @Override
   public void updateSmartDashboardValues() {

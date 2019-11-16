@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import frc.robot.subsystems.ArmExtenderBuilder;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.DriveTrainBuilder;
 import frc.robot.subsystems.GamePadSubsystem;
@@ -40,7 +41,7 @@ public class Robot extends TimedRobot {
   // The max output can be set directory on the DriveTrain from a drive train 
   // command. For example, the initliize method can set the max ouput in the initialize
   // method. Any drive train that does this, should set it back in the end()/interrupted() methods.
-  private static double MAX_DRIVE_TRAIN_POWER = 1.0;
+  private static double MAX_DRIVE_TRAIN_POWER = .75;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -59,8 +60,8 @@ public class Robot extends TimedRobot {
 
     subsystems.add(createDriveTrainSubsystem());
     subsystems.add(createPanelGrabberSubsystem());
+    subsystems.add(createArmExtender());
     subsystems.add(createGroupCommandsSubsystem());
-    System.out.println("Creating gamepad");
     subsystems.add(createGamePadSubsystem(m_oi));
     subsystems.forEach(sub -> sub.addCommands(commandDirectory));
   }
@@ -173,5 +174,11 @@ public class Robot extends TimedRobot {
 
   private HCSubsystem createGamePadSubsystem(OI oi){
     return new GamePadSubsystem(oi);
+  }
+
+  private HCSubsystem createArmExtender(){
+    ArmExtenderBuilder builder = new ArmExtenderBuilder();
+    builder.setCanId(6);
+    return builder.build();
   }
 }

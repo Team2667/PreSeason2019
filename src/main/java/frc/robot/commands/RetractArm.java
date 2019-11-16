@@ -3,10 +3,10 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.ArmExtender;
 
-public class ExtendArm extends Command {
+public class RetractArm extends Command {
     private ArmExtender armExtender;
     private long endMillis;
-  public ExtendArm(ArmExtender armExtender) {
+  public RetractArm(ArmExtender armExtender) {
     this.armExtender = armExtender;
   }
 
@@ -14,14 +14,15 @@ public class ExtendArm extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-      endMillis = System.currentTimeMillis()  + 1000;
+    System.out.println("Retract arm was called");
+    endMillis = System.currentTimeMillis()  + 1000;
 
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-      this.armExtender.move(.7);
+      this.armExtender.move(-.7);
   }
 
   // Make this return true when this Command no longer needs to run execute()

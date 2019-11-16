@@ -33,4 +33,6 @@ public class RobotMap {
 
   public static final int grabPanel = 5;
   public static final int releasePanel = 6;
+  public static final int extendArm = 7;
+  public static final int retractArm = 8;
 }

@@ -1,5 +1,7 @@
 package honeycrisp.subsystems;
 
+import java.util.Set;
+
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public abstract class HCSimpleTalon extends HCSubsystem{
@@ -10,12 +12,15 @@ public abstract class HCSimpleTalon extends HCSubsystem{
     }
 
     public void move(double power){
-        // ToDo: implement this method. The power is a double (real) number between -1.0 - 1.0.
+        talon.set(power);
+        //The power is a double (real) number between -1.0 - 1.0.
         // It represents the precentage of power to apply to a motor through the talon.
         // 1 is 100% .5 is 50% etctera
+
     }
 
     public void stop(){
-        // ToDo: Implement this method. 
+            talon.set(0);
+
     }
 }
