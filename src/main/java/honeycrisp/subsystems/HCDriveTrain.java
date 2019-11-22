@@ -39,6 +39,7 @@ public abstract class HCDriveTrain extends HCSubsystem{
 
     public void arcadeDrive(GenericHID joy) {
         diffDrive.arcadeDrive(-joy.getX(), joy.getY());
+        System.out.println("Running");
     }
 
     public void invertLeft(){

@@ -17,7 +17,7 @@ public class Drive extends JoystickCommand{
   private double prevMaxOutput;
 
   // Sets the maximum output for the drive train when driving the robot with a joystick.
-  private final double MAX_OUTPUT = .5;
+  private final double MAX_OUTPUT = .75;
 
   public Drive(HCDriveTrain driveTrain) {
     requires(driveTrain);

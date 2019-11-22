@@ -41,7 +41,7 @@ public class Robot extends TimedRobot {
   // The max output can be set directory on the DriveTrain from a drive train 
   // command. For example, the initliize method can set the max ouput in the initialize
   // method. Any drive train that does this, should set it back in the end()/interrupted() methods.
-  private static double MAX_DRIVE_TRAIN_POWER = .75;
+  private static double MAX_DRIVE_TRAIN_POWER = 0;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
