@@ -15,6 +15,7 @@ import frc.robot.RobotMap;
 import frc.robot.commands.Drive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import honeycrisp.cmdutils.CommandDirectory;
+import honeycrisp.subsystems.DriveTrainMotorControllers;
 import honeycrisp.subsystems.HCDriveTrain;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -27,8 +28,8 @@ public class DriveTrain extends HCDriveTrain {
   // here. Call these from Commands.
   private Command defaultCommand;
 
-  public DriveTrain(WPI_TalonSRX leftFront,  WPI_TalonSRX rightFront,  WPI_TalonSRX leftRear,  WPI_TalonSRX rightRear){
-    super(leftFront, rightFront, leftRear, rightRear);
+  public DriveTrain(DriveTrainMotorControllers controllers){
+    super(controllers);
   }
 
   public DriveTrain(SpeedControllerGroup leftSide, SpeedControllerGroup rightSide){

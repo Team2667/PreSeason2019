@@ -65,7 +65,12 @@ public abstract class HCDriveTrainBuilder<T extends HCDriveTrain> {
     }
 
     public T build(){
-        T dt = newDriveTrain(lfTalon,rfTalon,lrTalon,rrTalon);
+        TalonDriveTrainMotorControllers controllers = new TalonDriveTrainMotorControllers();
+        controllers.addLeftFront(lfTalon);
+        controllers.addRightFront(rfTalon);
+        controllers.addLeftRear(lrTalon);
+        controllers.addRightRear(rrTalon);
+        T dt = newDriveTrain(controllers);
         
         dt.setDistanceSensor(distanceSensor);
         dt.setGyro(gyro);
@@ -79,5 +84,5 @@ public abstract class HCDriveTrainBuilder<T extends HCDriveTrain> {
         return dt;
     }
 
-    abstract protected T newDriveTrain(WPI_TalonSRX leftFront,  WPI_TalonSRX rightFront,  WPI_TalonSRX leftRear,  WPI_TalonSRX rightRear);
+    abstract protected T newDriveTrain(DriveTrainMotorControllers controllers);
 }

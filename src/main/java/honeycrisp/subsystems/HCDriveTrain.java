@@ -31,6 +31,15 @@ public abstract class HCDriveTrain extends HCSubsystem{
     private double maxOutput;
     
 
+    public HCDriveTrain(DriveTrainMotorControllers controllers) {
+        leftSideControllerGroup = new SpeedControllerGroup(
+                controllers.getLeftFront(), controllers.getLeftRear());
+        rightSideControllerGroup = new SpeedControllerGroup(
+                controllers.getRightFront(), controllers.getRightRear());
+        diffDrive = new DifferentialDrive(leftSideControllerGroup, rightSideControllerGroup);
+    }
+
+    @Deprecated
     public HCDriveTrain(WPI_TalonSRX leftFront,  WPI_TalonSRX rightFront,  WPI_TalonSRX leftRear,  WPI_TalonSRX rightRear){
         leftSideControllerGroup = new SpeedControllerGroup(leftFront, leftRear);
         rightSideControllerGroup = new SpeedControllerGroup(rightFront, rightRear);
