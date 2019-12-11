@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import honeycrisp.cmdutils.CommandDirectory;
 import honeycrisp.subsystems.HCDriveTrain;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.revrobotics.CANSparkMax;
 
 /**
  * Add your docs here.
@@ -27,7 +27,7 @@ public class DriveTrain extends HCDriveTrain {
   // here. Call these from Commands.
   private Command defaultCommand;
 
-  public DriveTrain(WPI_TalonSRX leftFront,  WPI_TalonSRX rightFront,  WPI_TalonSRX leftRear,  WPI_TalonSRX rightRear){
+  public DriveTrain(CANSparkMax leftFront,  CANSparkMax rightFront,  CANSparkMax leftRear,  CANSparkMax rightRear){
     super(leftFront, rightFront, leftRear, rightRear);
   }
 

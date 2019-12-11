@@ -7,7 +7,7 @@
 
 package honeycrisp.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.revrobotics.CANSparkMax;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.GenericHID;
@@ -31,7 +31,7 @@ public abstract class HCDriveTrain extends HCSubsystem{
     private double maxOutput;
     
 
-    public HCDriveTrain(WPI_TalonSRX leftFront,  WPI_TalonSRX rightFront,  WPI_TalonSRX leftRear,  WPI_TalonSRX rightRear){
+    public HCDriveTrain(CANSparkMax leftFront,  CANSparkMax rightFront,  CANSparkMax leftRear,  CANSparkMax rightRear){
         leftSideControllerGroup = new SpeedControllerGroup(leftFront, leftRear);
         rightSideControllerGroup = new SpeedControllerGroup(rightFront, rightRear);
         diffDrive = new DifferentialDrive(leftSideControllerGroup, rightSideControllerGroup);

@@ -8,9 +8,10 @@
 package frc.robot.subsystems;
 
 import org.junit.Test;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.revrobotics.CANSparkMax;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
+import com.revrobotics.CANSparkMax;
 
 /**
  * Add your docs here.
@@ -18,10 +19,10 @@ import static org.junit.Assert.*;
 public class DriveTrainTest {
     @Test
     public void canCreateADriveTraingObject(){
-        WPI_TalonSRX lfTalon = mock(WPI_TalonSRX.class);
-        WPI_TalonSRX rfTalon = mock(WPI_TalonSRX.class);
-        WPI_TalonSRX lrTalon = mock(WPI_TalonSRX.class);
-        WPI_TalonSRX rrTalon = mock(WPI_TalonSRX.class);
+        CANSparkMax lfTalon = mock(CANSparkMax.class);
+        CANSparkMax rfTalon = mock(CANSparkMax.class);
+        CANSparkMax lrTalon = mock(CANSparkMax.class);
+        CANSparkMax rrTalon = mock(CANSparkMax.class);
 
         DriveTrain dt = new DriveTrain(lfTalon,rfTalon, lrTalon, rrTalon);
         assertNotNull(dt);

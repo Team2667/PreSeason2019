@@ -7,7 +7,7 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.revrobotics.CANSparkMax;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import honeycrisp.subsystems.HCDriveTrainBuilder;
@@ -16,7 +16,7 @@ import honeycrisp.subsystems.HCDriveTrainBuilder;
  * Add your docs here.
  */
 public class DriveTrainBuilder extends HCDriveTrainBuilder<DriveTrain>{
-    protected DriveTrain newDriveTrain(WPI_TalonSRX leftFront,  WPI_TalonSRX rightFront,  WPI_TalonSRX leftRear,  WPI_TalonSRX rightRear){
+    protected DriveTrain newDriveTrain(CANSparkMax leftFront,  CANSparkMax rightFront,  CANSparkMax leftRear,  CANSparkMax rightRear){
         return new DriveTrain(leftFront, rightFront,leftRear,rightRear);
     }
     
